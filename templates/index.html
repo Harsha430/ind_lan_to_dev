@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transliterator</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        color: #343a40;
+      }
+      .container {
+        margin-top: 50px;
+      }
+      .result {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+      }
+      .original-text,
+      .transliterated-text {
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Transliterator to Devanagari</h1>
+      <form method="POST">
+        <div class="form-group">
+          <label for="input_text">Enter text to transliterate:</label>
+          <textarea
+            class="form-control"
+            id="input_text"
+            name="input_text"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="source_language">Select Source Language:</label>
+          <select
+            class="form-control"
+            id="source_language"
+            name="source_language"
+            required
+          >
+            <option value="hindi">Hindi</option>
+            <option value="bengali">Bengali</option>
+            <option value="gujarati">Gujarati</option>
+            <option value="kannada">Kannada</option>
+            <option value="malayalam">Malayalam</option>
+            <option value="odisha">Odia</option>
+            <option value="punjabi">Punjabi</option>
+            <option value="tamil">Tamil</option>
+            <option value="telugu">Telugu</option>
+            <option value="gunjala gondi">Gunjala Gondii</option>
+            <option value="grantha">Grantha</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          Transliterate
+        </button>
+      </form>
+      {% if result %}
+      <div class="result row">
+        <div class="col-md-6">
+          <h5>Original Input:</h5>
+          <div class="original-text">
+            <p>{{ request.form['input_text'] }}</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h5>Transliterated Text in Devanagari:</h5>
+          <div class="transliterated-text">
+            <p>{{ result }}</p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
