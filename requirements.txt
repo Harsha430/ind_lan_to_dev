@@ -1,5 +1,4 @@
 Flask==2.3.2
 indic-transliteration==2.3.0
-typer==0.3.2
-click==8.1.7
+typer==0.9.0  # Updated to avoid conflict with Flask
 gunicorn==20.1.0
